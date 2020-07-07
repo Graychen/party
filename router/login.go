@@ -13,6 +13,12 @@ type auth struct {
 	Password string `valid:"Required; MaxSize(50)"`
 }
 
+// @Summary 登录
+// @Produce json
+// @Param username query string true "username"
+// @Param password query string true "password"
+// @Success 200 {string} json "{code":200,"data":{},"msg":"ok"}"
+// @Router /login [get]
 func Login(c *gin.Context) {
 	appG := util.Gin{C: c}
 	valid := validation.Validation{}
@@ -44,6 +50,6 @@ func Login(c *gin.Context) {
 	}
 
 	appG.Response(http.StatusOK, consts.SUCCESS, map[string]string{
-		"token": token
+		"token": token,
 	})
 }

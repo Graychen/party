@@ -22,7 +22,7 @@ func GenerateToken(username, password string) (string, error) {
 		password,
 		jwt.StandardClaims {
 			ExpiresAt : expireTime.Unix(),
-			Issuer : "go-backend-starter"
+			Issuer : "go-backend-starter",
 		},
 	}
 	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

@@ -13,7 +13,7 @@ func (g *Gin) Response(httpCode, errCode int, data interface{}){
 	g.C.Json(httpCode, gin.H{
 		"code": httpCode,
 		"msg": consts.GetMsg(errCode),
-		"data": data
+		"data": data,
 	})
 
 	return

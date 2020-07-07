@@ -1,10 +1,11 @@
 package router
 
 import "github.com/gin-gonic/gin"
+import _ "github.com/detectiveHLH/go-backend-starter/docs"
 
 func InitRouter() *gin.Engine {
 		router := gin.New()
-
+		router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 		router.GET("/login", Login)
 		apiVersionOne := router.Group("/api/v1/")
 
