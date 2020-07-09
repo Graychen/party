@@ -9,10 +9,12 @@ require (
 	github.com/cncf/udpa/go v0.0.0-20200629203442-efcf912fb354 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
 	github.com/creack/pty v1.1.11 // indirect
+	github.com/denisenkom/go-mssqldb v0.0.0-20200620013148-b91950f658ec // indirect
 	github.com/detectiveHLH/go-backend-starter v0.0.0-20191202071258-b02ff283dd2b
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/envoyproxy/go-control-plane v0.9.6 // indirect
 	github.com/envoyproxy/protoc-gen-validate v0.4.0 // indirect
+	github.com/fvbock/endless v0.0.0-20170109170031-447134032cb6
 	github.com/gin-contrib/gzip v0.0.2 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-openapi/spec v0.19.8 // indirect
@@ -22,10 +24,14 @@ require (
 	github.com/google/pprof v0.0.0-20200630070148-6609db78bf68 // indirect
 	github.com/iancoleman/strcase v0.0.0-20191112232945-16388991a334 // indirect
 	github.com/ianlancetaylor/demangle v0.0.0-20200705045648-b855e248e31b // indirect
+	github.com/jinzhu/gorm v1.9.14 // indirect
+	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
+	github.com/lib/pq v1.7.0 // indirect
 	github.com/lyft/protoc-gen-star v0.4.15 // indirect
 	github.com/mailru/easyjson v0.7.1 // indirect
+	github.com/mattes/migrate v3.0.1+incompatible // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/sftp v1.11.0 // indirect
 	github.com/rogpeppe/go-internal v1.6.0 // indirect
@@ -35,10 +41,11 @@ require (
 	github.com/swaggo/swag v1.6.7 // indirect
 	github.com/urfave/cli/v2 v2.2.0 // indirect
 	go.opencensus.io v0.22.4 // indirect
+	golang.org/x/crypto v0.0.0-20200707235045-ab33eee955e0 // indirect
 	golang.org/x/net v0.0.0-20200707034311-ab3426394381 // indirect
 	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae // indirect
 	golang.org/x/text v0.3.3 // indirect
-	golang.org/x/tools v0.0.0-20200706234117-b22de6825cf7 // indirect
+	golang.org/x/tools v0.0.0-20200708183856-df98bc6d456c // indirect
 	google.golang.org/genproto v0.0.0-20200707001353-8e8330bf89df // indirect
 	google.golang.org/grpc v1.30.0 // indirect
 	gopkg.in/ini.v1 v1.57.0
