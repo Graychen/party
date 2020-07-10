@@ -1,1 +1,1 @@
-DROP table IF EXISTS day;
+DROP table IF EXISTS party_day;

@@ -1,1 +1,1 @@
-DROP table IF EXISTS users;
+DROP table IF EXISTS party_users;

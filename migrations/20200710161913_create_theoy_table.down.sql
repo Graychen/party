@@ -1,2 +1,2 @@
 
-DROP table IF EXISTS theoy;
+DROP table IF EXISTS party_theoy;
