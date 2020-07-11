@@ -40,6 +40,7 @@ require (
 	github.com/siddontang/go v0.0.0-20180604090527-bdc77568d726 // indirect
 	github.com/spf13/afero v1.3.1 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
+	github.com/swaggo/gin-swagger v1.2.0
 	github.com/swaggo/swag v1.6.7 // indirect
 	github.com/urfave/cli/v2 v2.2.0 // indirect
 	go.opencensus.io v0.22.4 // indirect
