@@ -1,8 +1,8 @@
 package router
 
 import (
-_ "github.com/detectiveHLH/go-backend-starter/docs"
-	"github.com/detectiveHLH/go-backend-starter/middleware/jwt"
+  _ "danjian/docs"
+	//"danjian/middleware/jwt"
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -14,7 +14,7 @@ func InitRouter() *gin.Engine {
 		router.GET("/login", Login)
 		apiVersionOne := router.Group("/api/v1/")
 
-		apiVersionOne.Use(jwt.Jwt())
+		//apiVersionOne.Use(jwt.Jwt())
 
 		apiVersionOne.GET("hello", func(c *gin.Context) {
 			c.JSON(200, gin.H{
@@ -24,5 +24,6 @@ func InitRouter() *gin.Engine {
 				"data": nil,
 			})
 		})
+		apiVersionOne.GET("offices", Get)
 		return router
 }

@@ -2,9 +2,9 @@ package router
 
 import (
 	"github.com/astaxie/beego/validation"
-	"github.com/detectiveHLH/go-backend-starter/consts"
-	"github.com/detectiveHLH/go-backend-starter/util"
-	"github.com/detectiveHLH/go-backend-starter/service/authentication"
+	"danjian/consts"
+	"danjian/util"
+	"danjian/service/authentication"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
