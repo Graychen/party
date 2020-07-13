@@ -8,6 +8,8 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
 	"syscall"
+	_ "danjian/database"
+	orm "danjian/database"
 )
 
 type User struct {
@@ -29,8 +31,5 @@ func main() {
 	if err != nil {
 		log.Printf("Server err: %v", err)
 	}
-	db, err := gorm.Open("mysql", "root:206065@tcp(127.0.0.1:3306)/part?charset=utf8&parseTime=True&loc=Loca")
-	db.DB().SetMaxIdleConns(10)
-	db.DB().SetMaxOpenConns(100)
-	defer db.Close()
+	defer orm.Eloquent.Close()
 }

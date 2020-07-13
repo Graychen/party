@@ -2,6 +2,22 @@ info:
   contact: {}
   license: {}
 paths:
+  /api/v1/offices:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 团队风采
   /login:
     get:
       parameters:
@@ -19,7 +35,7 @@ paths:
       - application/json
       responses:
         "200":
-          description: '{code":200,"data":{},"msg":"ok"}'
+          description: '{"code":200,"data":{},"msg":"ok"}'
           schema:
             type: string
       summary: 登录
