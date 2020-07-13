@@ -1,11 +1,12 @@
 package util
 
 import (
+	"danjian/setting"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )
 
-var jwtSecret = []byte(setting.AppSetting.jwtSecret)
+var jwtSecret = []byte(setting.AppSetting.JwtSecret)
 
 type Claims struct {
 	Username string `json:"username"`
@@ -13,10 +14,15 @@ type Claims struct {
 	jwt.StandardClaims
 }
 
-//建立token
+/**
+生成token
+@param 	username 	用户名  	string
+@param 	password 	密码	   	string
+@returns token, err
+*/
 func GenerateToken(username, password string) (string, error) {
 	nowTime := time.Now()
-	exprieTime := nowTime.Add(3 * time.Hour)
+	expireTime := nowTime.Add(3 * time.Hour)
 	claims := Claims{
 		username,
 		password,
@@ -31,8 +37,12 @@ func GenerateToken(username, password string) (string, error) {
 	return token, err
 }
 
-//解析token
-func ParseToken(token String) (*Claims, error) {
+/**
+解析token
+@param		token
+@returns 	token, err
+*/
+func ParseToken(token string) (*Claims, error) {
 	tokenClaims, err := jwt.ParseWithClaims(token, &Claims{}, func(token *jwt.Token) (interface{}, error) {
 		return jwtSecret, nil
 	})

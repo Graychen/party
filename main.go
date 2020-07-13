@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/detectiveHLH/go-backend-starter/router"
-	"github.com/Graychen/party/setting"
+	"danjian/router"
 	"github.com/fvbock/endless"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"

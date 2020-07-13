@@ -8,19 +8,17 @@ import (
 type App struct {
 	JwtSecret string
 }
-
 type Server struct {
-	Ip string
+	Ip   string
 	Port string
 }
-
 type Database struct {
 	Type        string
 	User        string
 	Password    string
 	Host        string
 	Name        string
-	TabelPrefix string
+	TablePrefix string
 }
 
 var AppSetting = &App{}
@@ -31,6 +29,7 @@ var config *ini.File
 func Setup() {
 	var err error
 	config, err = ini.Load("config/app.ini")
+	log.Printf("config is %s",config)
 	if err != nil {
 		log.Fatal("Fail to parse 'config/app.ini': %v", err)
 	}
@@ -42,6 +41,6 @@ func Setup() {
 func mapTo(section string, v interface{}) {
 	err := config.Section(section).MapTo(v)
 	if err != nil {
-		log.Fatalf("Cfg.MapTo RedisSetting err:%v", err)
+		log.Fatalf("Cfg.MapTo RedisSetting err: %v", err)
 	}
 }
