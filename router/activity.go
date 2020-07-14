@@ -9,19 +9,18 @@ model "danjian/models"
 	  "strconv"
 )
 
-// @Summary 团队风采
+// @Summary 活动列表
 // @Produce json
 // @Param page query int true "page"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
-// @Router /api/v1/offices [get]
-func Offices(c *gin.Context) {
-	var office model.Office
+// @Router /api/v1/activities [get]
+func Activities(c *gin.Context) {
+	var activity model.Activity
 	appG := util.Gin{C: c}
 	page := c.Query("page")
 	pageNumber , _ := strconv.Atoi(page)
 
-	result, err := office.List(pageNumber)
-	
+	result, err := activity.List(pageNumber)
 	if err != nil {
 		appG.Response(http.StatusOK, consts.ERROR_GET_ARTICLES_FAIL, nil)
 		return

@@ -25,6 +25,56 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/activities": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "活动列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/offices": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "团队风采",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/login": {
             "get": {
                 "produces": [
@@ -49,7 +99,7 @@ var doc = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "{code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }
