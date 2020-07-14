@@ -15,7 +15,7 @@ func init() {
 	gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string  {//加上表前缀
 		return "party_" + defaultTableName;
 	}
-
+    Eloquent.LogMode(true)//调试时打印sql语句
     if err != nil {
         fmt.Printf("mysql connect error %v", err)
     }

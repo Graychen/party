@@ -2,6 +2,22 @@ info:
   contact: {}
   license: {}
 paths:
+  /api/v1/activities:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 活动列表
   /api/v1/offices:
     get:
       parameters:
@@ -9,7 +25,7 @@ paths:
         in: query
         name: page
         required: true
-        type: string
+        type: integer
       produces:
       - application/json
       responses:

@@ -18,8 +18,8 @@ type Office struct {
 var Offices []Office
 
 //列表
-func (office *Office) List()(offices []Office, err error) {
-	if err = orm.Eloquent.Find(&offices).Error; err != nil {
+func (office *Office) List(page int)(offices []Office, err error) {
+	if err = orm.Eloquent.Offset((page-1)*2).Limit(2).Find(&offices).Error; err != nil {
 		return 
 	}
 	return
