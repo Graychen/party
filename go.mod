@@ -5,6 +5,7 @@ go 1.12
 require (
 	cloud.google.com/go/bigquery v1.9.0 // indirect
 	cloud.google.com/go/storage v1.10.0 // indirect
+	github.com/Shelnutt2/db2struct v1.0.1 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/astaxie/beego v1.12.2
 	github.com/cncf/udpa/go v0.0.0-20200629203442-efcf912fb354 // indirect
