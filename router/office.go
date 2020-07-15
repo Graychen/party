@@ -9,7 +9,7 @@ model "danjian/models"
 	  "strconv"
 )
 
-// @Summary 团队风采
+// @Summary 团队风采列表
 // @Produce json
 // @Param page query int true "page"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
@@ -23,7 +23,7 @@ func Offices(c *gin.Context) {
 	result, err := office.List(pageNumber)
 	
 	if err != nil {
-		appG.Response(http.StatusOK, consts.ERROR_GET_ARTICLES_FAIL, nil)
+		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
 		return
 	}
 	appG.Response(http.StatusOK, consts.SUCCESS, result)

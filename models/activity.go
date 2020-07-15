@@ -2,6 +2,7 @@ package models
 
 import (
 	orm "danjian/database"
+	    "danjian/consts"
 )
 
 type Activity struct {
@@ -19,7 +20,7 @@ var Activities []Activity
 
 //列表
 func (activity *Activity) List(page int)(activities []Activity, err error) {
-	if err = orm.Eloquent.Offset((page-1)*2).Limit(2).Find(&activities).Error; err != nil {
+	if err = orm.Eloquent.Offset((page-1)*consts.PAGE_SIZE).Limit(consts.PAGE_SIZE).Find(&activities).Error; err != nil {
 		return 
 	}
 	return

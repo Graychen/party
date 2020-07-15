@@ -18,6 +18,22 @@ paths:
           schema:
             type: string
       summary: 活动列表
+  /api/v1/banners:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 首页封面列表
   /api/v1/offices:
     get:
       parameters:
@@ -33,7 +49,23 @@ paths:
           description: '{"code":200,"data":{},"msg":"ok"}'
           schema:
             type: string
-      summary: 团队风采
+      summary: 团队风采列表
+  /api/v1/theoies:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 理论分享列表
   /login:
     get:
       parameters:

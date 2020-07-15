@@ -30,12 +30,62 @@
                 }
             }
         },
+        "/api/v1/banners": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "首页封面列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/offices": {
             "get": {
                 "produces": [
                     "application/json"
                 ],
-                "summary": "团队风采",
+                "summary": "团队风采列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/theoies": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "理论分享列表",
                 "parameters": [
                     {
                         "type": "integer",

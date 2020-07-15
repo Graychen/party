@@ -1,6 +1,11 @@
 package models
 
-type theoy struct {
+import (
+	orm "danjian/database"
+	    "danjian/consts"
+)
+
+type Theoy struct {
         Content    string   `gorm:"column:content"`
         CreateTime int `gorm:"column:create_time"`
         ID         int      `gorm:"column:id;primary_key"`
@@ -9,7 +14,12 @@ type theoy struct {
         Title      string   `gorm:"column:title"`
 }
 
-// TableName sets the insert table name for this struct type
-func (t *theoy) TableName() string {
-        return "party_theoy"
+var Theoies []Theoy
+
+//列表
+func (theoy *Theoy) List(page int)(theoies []Theoy, err error) {
+	if err = orm.Eloquent.Offset((page-1)*consts.PAGE_SIZE).Limit(consts.PAGE_SIZE).Find(&theoies).Error; err != nil {
+		return 
+	}
+	return
 }
