@@ -20,7 +20,7 @@ type User struct {
 
 func main() {
 	r := router.InitRouter()
-	address := fmt.Sprintf("%s:%s", "localhost", "8080")
+	address := fmt.Sprintf("%s:%s", "0.0.0.0", "80")
 	log.Printf("address is %s", address)
 	server := endless.NewServer(address, r)
 	server.BeforeBegin = func(add string) {
