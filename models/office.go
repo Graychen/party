@@ -5,14 +5,14 @@ import (
 )
 
 type Office struct {
-	ID  int64 `json:"id"`
-	UserId  int64 `json:"user_id"`
-	Branch  int64 `json:"branch"`
-	Role  int64 `json:"role"`
-	IsSecretary  int64 `json:"is_secretary"`
-	IsCommittee  int64 `json:"is_committee"`
-	IsMember  int64 `json:"is_member"`
-	CreateTime  int64 `json:"create_time"`
+	ID  int64 `gorm:"column:id"`
+	UserId  int64 `gorm:"column:user_id"`
+	Branch  int64 `gorm:"column:branch"`
+	Role  int64 `gorm:"column:role"`
+	IsSecretary  int64 `gorm:"column:is_secretary"`
+	IsCommittee  int64 `gorm:"column:is_committee"`
+	IsMember  int64 `gorm:"column:is_member"`
+	CreateTime  int64 `gorm:"column:create_time"`
 }
 
 var Offices []Office

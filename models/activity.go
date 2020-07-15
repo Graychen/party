@@ -6,14 +6,14 @@ import (
 )
 
 type Activity struct {
-	ID  int64 `json:"id"`
-	Theme  string `json:"theme"`
-	Time  int64 `json:"time"`
-	Address  string `json:"address"`
-	Content  string `json:"content"`
-	Totol  int64 `json:"totol"`
-	Status  int64 `json:"status"`
-	CreateTime  int64 `json:"create_time"`
+	ID  int64     `gorm:"column:id"`
+	Theme  string `gorm:"column:theme"`
+	Time  int64 `gorm:"column:time"`
+	Address  string `gorm:"column:address"`
+	Content  string `gorm:"column:content"`
+	Totol  int64 `gorm:"column:totol"`
+	Status  int64 `gorm:"column:status"`
+	CreateTime  int64 `gorm:"column:create_time"`
 }
 
 var Activities []Activity
