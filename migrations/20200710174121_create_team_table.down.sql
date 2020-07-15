@@ -1,1 +1,0 @@
-DROP table IF EXISTS party_team;
