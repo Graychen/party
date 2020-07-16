@@ -75,6 +75,37 @@ var doc = `{
                 }
             }
         },
+        "/api/v1/miens": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "风采列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "类型1团队风采,2活动风采",
+                        "name": "type",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/offices": {
             "get": {
                 "produces": [

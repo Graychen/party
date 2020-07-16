@@ -34,6 +34,26 @@ paths:
           schema:
             type: string
       summary: 首页封面列表
+  /api/v1/miens:
+    get:
+      parameters:
+      - description: 类型1团队风采,2活动风采
+        in: query
+        name: type
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 风采列表
   /api/v1/offices:
     get:
       parameters:

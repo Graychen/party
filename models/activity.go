@@ -6,7 +6,7 @@ import (
 )
 
 type Activity struct {
-	ID  int     `gorm:"column:id"`
+	ID  int     `gorm:"column:id;primary_key"`
 	Theme  string `gorm:"column:theme"`
 	Time  int `gorm:"column:time"`
 	Address  string `gorm:"column:address"`

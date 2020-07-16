@@ -28,5 +28,6 @@ func InitRouter() *gin.Engine {
 		apiVersionOne.GET("activities", Activities)
 		apiVersionOne.GET("theoies", Theoies)
 		apiVersionOne.GET("banners", Banners)
+		apiVersionOne.GET("miens", Miens)
 		return router
 }

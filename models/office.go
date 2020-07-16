@@ -5,7 +5,7 @@ import (
 )
 
 type Office struct {
-	ID  int `gorm:"column:id"`
+	ID  int `gorm:"column:id;primary_key"`
 	UserId  int `gorm:"column:user_id"`
 	Branch  int `gorm:"column:branch"`
 	Role  int `gorm:"column:role"`

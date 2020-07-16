@@ -11,7 +11,7 @@ model "danjian/models"
 
 // @Summary 风采列表
 // @Produce json
-// @Param type query int true "类型1团队风采,2活动风采"
+// @Param type query int false "类型1团队风采,2活动风采"
 // @Param page query int true "page"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
 // @Router /api/v1/miens [get]
