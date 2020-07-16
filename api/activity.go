@@ -1,12 +1,13 @@
-package router
+package api
 
 import (
-	  "danjian/consts"
-	  "danjian/util"
-	  "github.com/gin-gonic/gin"
-	  "net/http"
-model "danjian/models"
-	  "strconv"
+	"danjian/consts"
+	model "danjian/models"
+	"danjian/util"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @Summary 活动列表
@@ -18,7 +19,7 @@ func Activities(c *gin.Context) {
 	var activity model.Activity
 	appG := util.Gin{C: c}
 	page := c.Query("page")
-	pageNumber , _ := strconv.Atoi(page)
+	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := activity.List(pageNumber)
 	if err != nil {

@@ -1,12 +1,13 @@
-package router
+package api
 
 import (
-	  "danjian/consts"
-	  "danjian/util"
-	  "github.com/gin-gonic/gin"
-	  "net/http"
-model "danjian/models"
-	  "strconv"
+	"danjian/consts"
+	model "danjian/models"
+	"danjian/util"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @Summary 风采列表
@@ -20,8 +21,8 @@ func Miens(c *gin.Context) {
 	appG := util.Gin{C: c}
 	mienType := c.Query("type")
 	page := c.Query("page")
-	pageNumber , _ := strconv.Atoi(page)
-	typeNumber , _ := strconv.Atoi(mienType)
+	pageNumber, _ := strconv.Atoi(page)
+	typeNumber, _ := strconv.Atoi(mienType)
 
 	result, err := mien.List(pageNumber, typeNumber)
 	if err != nil {

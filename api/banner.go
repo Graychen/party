@@ -1,12 +1,13 @@
-package router
+package api
 
 import (
-	  "danjian/consts"
-	  "danjian/util"
-	  "github.com/gin-gonic/gin"
-	  "net/http"
-model "danjian/models"
-	  "strconv"
+	"danjian/consts"
+	model "danjian/models"
+	"danjian/util"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @Summary 首页封面列表
@@ -18,10 +19,10 @@ func Banners(c *gin.Context) {
 	var banner model.Banner
 	appG := util.Gin{C: c}
 	page := c.Query("page")
-	pageNumber , _ := strconv.Atoi(page)
+	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := banner.List(pageNumber)
-	
+
 	if err != nil {
 		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
 		return
