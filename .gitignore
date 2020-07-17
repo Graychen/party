@@ -1,2 +1,6 @@
 vendor
 .vscode/
+node_modules
+__debug_bin
+package.json
+package-lock.json
