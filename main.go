@@ -1,15 +1,16 @@
 package main
 
 import (
-	"fmt"
+	_ "danjian/database"
+	orm "danjian/database"
 	"danjian/router"
+	"fmt"
+	"log"
+	"syscall"
+
 	"github.com/fvbock/endless"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"log"
-	"syscall"
-	_ "danjian/database"
-	orm "danjian/database"
 )
 
 type User struct {

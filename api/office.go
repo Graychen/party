@@ -1,12 +1,13 @@
-package router
+package api
 
 import (
-	  "danjian/consts"
-	  "danjian/util"
-	  "github.com/gin-gonic/gin"
-	  "net/http"
-model "danjian/models"
-	  "strconv"
+	"danjian/consts"
+	model "danjian/models"
+	"danjian/util"
+	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 // @Summary 团队风采列表
@@ -18,10 +19,10 @@ func Offices(c *gin.Context) {
 	var office model.Office
 	appG := util.Gin{C: c}
 	page := c.Query("page")
-	pageNumber , _ := strconv.Atoi(page)
+	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := office.List(pageNumber)
-	
+
 	if err != nil {
 		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
 		return

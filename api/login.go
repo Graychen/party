@@ -1,12 +1,13 @@
-package router
+package api
 
 import (
-	"github.com/astaxie/beego/validation"
 	"danjian/consts"
-	"danjian/util"
 	"danjian/service/authentication"
-	"github.com/gin-gonic/gin"
+	"danjian/util"
 	"net/http"
+
+	"github.com/astaxie/beego/validation"
+	"github.com/gin-gonic/gin"
 )
 
 type auth struct {
@@ -44,7 +45,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	token, err :=util.GenerateToken(username, password)
+	token, err := util.GenerateToken(username, password)
 	if err != nil {
 		appG.Response(http.StatusOK, consts.ERROR_AUTH_TOKEN, nil)
 		return

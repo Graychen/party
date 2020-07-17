@@ -1,7 +1,9 @@
 package router
 
 import (
-  _ "danjian/docs"
+	"danjian/api"
+	_ "danjian/docs"
+
 	//"danjian/middleware/jwt"
 	"github.com/gin-gonic/gin"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -9,24 +11,26 @@ import (
 )
 
 func InitRouter() *gin.Engine {
-		router := gin.New()
-		router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-		router.GET("/login", Login)
-		apiVersionOne := router.Group("/api/v1/")
+	router := gin.New()
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	router.GET("/login", api.Login)
+	apiVersionOne := router.Group("/api/v1/")
 
-		//apiVersionOne.Use(jwt.Jwt())
+	//apiVersionOne.Use(jwt.Jwt())
 
-		apiVersionOne.GET("hello", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"success": true,
-				"code": 200,
-				"message": "This works",
-				"data": nil,
-			})
+	apiVersionOne.GET("hello", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"success": true,
+			"code":    200,
+			"message": "This works",
+			"data":    nil,
 		})
-		apiVersionOne.GET("offices", Offices)
-		apiVersionOne.GET("activities", Activities)
-		apiVersionOne.GET("theoies", Theoies)
-		apiVersionOne.GET("banners", Banners)
-		return router
+	})
+	//apiVersionOne.GET("offices", api.Offices)
+	apiVersionOne.GET("activities", api.Activities)
+	apiVersionOne.POST("activities", api.CreateActivity)
+	apiVersionOne.GET("theoies", api.Theoies)
+	apiVersionOne.GET("banners", api.Banners)
+	apiVersionOne.GET("miens", api.Miens)
+	return router
 }

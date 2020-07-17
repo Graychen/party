@@ -18,6 +18,56 @@ paths:
           schema:
             type: string
       summary: 活动列表
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 活动主题
+        in: formData
+        name: Theme
+        required: true
+        type: string
+      - description: 活动时间
+        in: formData
+        name: Time
+        required: true
+        type: integer
+      - description: 活动地址
+        in: formData
+        name: Address
+        required: true
+        type: string
+      - description: 活动内容
+        in: formData
+        name: Content
+        required: true
+        type: string
+      - description: 活动人数
+        in: formData
+        name: Totol
+        required: true
+        type: integer
+      - description: 1正常显示,0不显示
+        in: formData
+        name: Status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 添加活动
   /api/v1/banners:
     get:
       parameters:
@@ -34,6 +84,26 @@ paths:
           schema:
             type: string
       summary: 首页封面列表
+  /api/v1/miens:
+    get:
+      parameters:
+      - description: 类型1团队风采,2活动风采
+        in: query
+        name: type
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 风采列表
   /api/v1/offices:
     get:
       parameters:

@@ -3,7 +3,7 @@ package models
 type dynamic struct {
         Address    string   `gorm:"column:address"`
         Content    string   `gorm:"column:content"`
-        CreateTime int `gorm:"column:create_time"`
+        CreateTime int      `gorm:"column:create_time"`
         ID         int      `gorm:"column:id;primary_key"`
         Joined     string   `gorm:"column:joined"`
         Name       string   `gorm:"column:name"`

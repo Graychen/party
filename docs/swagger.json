@@ -28,6 +28,79 @@
                         }
                     }
                 }
+            },
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "添加活动",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "活动主题",
+                        "name": "Theme",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "活动时间",
+                        "name": "Time",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动地址",
+                        "name": "Address",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动内容",
+                        "name": "Content",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "活动人数",
+                        "name": "Totol",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1正常显示,0不显示",
+                        "name": "Status",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"code\":201,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "/api/v1/banners": {
@@ -37,6 +110,37 @@
                 ],
                 "summary": "首页封面列表",
                 "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/miens": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "风采列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "类型1团队风采,2活动风采",
+                        "name": "type",
+                        "in": "query"
+                    },
                     {
                         "type": "integer",
                         "description": "page",
