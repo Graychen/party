@@ -3,6 +3,7 @@ package router
 import (
 	"danjian/api"
 	_ "danjian/docs"
+	"net/http"
 
 	//"danjian/middleware/jwt"
 	"github.com/gin-gonic/gin"
@@ -14,6 +15,7 @@ func InitRouter() *gin.Engine {
 	router := gin.New()
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/login", api.Login)
+	router.StaticFS("/uploads", http.Dir("uploads"))
 	apiVersionOne := router.Group("/api/v1/")
 
 	//apiVersionOne.Use(jwt.Jwt())
