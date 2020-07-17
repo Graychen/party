@@ -36,5 +36,6 @@ func InitRouter() *gin.Engine {
 	apiVersionOne.GET("theoies", api.Theoies)
 	apiVersionOne.GET("banners", api.Banners)
 	apiVersionOne.GET("miens", api.Miens)
+	apiVersionOne.POST("miens", api.CreateMien)
 	return router
 }

@@ -130,6 +130,46 @@ paths:
           schema:
             type: string
       summary: 风采列表
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 类型1团队风采,2活动风采
+        in: formData
+        name: Type
+        required: true
+        type: string
+      - description: 风采标题
+        in: formData
+        name: Title
+        required: true
+        type: string
+      - description: 风采内容
+        in: formData
+        name: Content
+        required: true
+        type: string
+      - description: 1正常显示,0不显示
+        in: formData
+        name: Status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 添加风采
   /api/v1/offices:
     get:
       parameters:

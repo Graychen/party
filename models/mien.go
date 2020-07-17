@@ -28,3 +28,11 @@ func (mien *Mien) List(page int, mienType int) (miens []Mien, err error) {
 	}
 	return
 }
+
+//创建
+func (mien *Mien) Create(obj interface{}) (activities []Mien, err error) {
+	if err = orm.Eloquent.Create(obj).Error; err != nil {
+		return
+	}
+	return
+}
