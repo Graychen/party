@@ -6,18 +6,20 @@ import (
 	"danjian/util"
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
 )
 
 type activity struct {
-	Theme   string `json:"Theme" form:"Theme" valid:"Required; MaxSize(100)"`
-	Time    string `json:"Time" form:"Time" valid:"Required; MaxSize(30)"`
-	Address string `json:"Address" form:"Address" valid:"Required; MaxSize(30)"`
-	Content string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
-	Totol   string `json:"Totol" form:"Totol"  valid:"Required; MaxSize(30)"`
-	Status  string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
+	Theme      string `json:"Theme" form:"Theme" valid:"Required; MaxSize(100)"`
+	Time       string `json:"Time" form:"Time" valid:"Required; MaxSize(30)"`
+	Address    string `json:"Address" form:"Address" valid:"Required; MaxSize(30)"`
+	Content    string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
+	Totol      string `json:"Totol" form:"Totol"  valid:"Required; MaxSize(30)"`
+	Status     string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
+	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required; MaxSize(30)"`
 }
 
 // @Summary 活动列表
@@ -57,12 +59,14 @@ func CreateActivity(c *gin.Context) {
 	valid := validation.Validation{}
 	appG := util.Gin{C: c}
 	theme := c.PostForm("Theme")
-	time := c.PostForm("Time")
+	activityTime := c.PostForm("Time")
 	address := c.PostForm("Address")
 	content := c.PostForm("Content")
 	totol := c.PostForm("Totol")
 	status := c.PostForm("Status")
-	param := &activity{Theme: theme, Time: time, Address: address, Content: content, Totol: totol, Status: status}
+	now := time.Now().Unix()
+	nowString := strconv.FormatInt(now, 10)
+	param := &activity{Theme: theme, Time: activityTime, Address: address, Content: content, Totol: totol, Status: status, CreateTime: nowString}
 	ok, _ := valid.Valid(param)
 	if !ok {
 		appG.Response(http.StatusBadRequest, consts.INVALID_PARAMS, nil)
