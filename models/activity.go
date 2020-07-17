@@ -16,11 +16,6 @@ type Activity struct {
 	CreateTime int    `gorm:"column:create_time"`
 }
 
-// TableName sets the insert table name for this struct type
-func (t *Activity) TableName() string {
-	return "party_activity"
-}
-
 var Activities []Activity
 
 //列表
