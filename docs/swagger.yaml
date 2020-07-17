@@ -84,6 +84,32 @@ paths:
           schema:
             type: string
       summary: 首页封面列表
+  /api/v1/images:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 上传图片
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"图片验证失败"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"上传失败"}'
+          schema:
+            type: string
+      summary: 上传图片
   /api/v1/miens:
     get:
       parameters:
