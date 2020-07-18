@@ -34,8 +34,8 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "page",
-                        "name": "page",
+                        "description": "Id",
+                        "name": "Id",
                         "in": "query",
                         "required": true
                     }
@@ -132,27 +132,27 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "page",
-                        "name": "page",
+                        "description": "Page",
+                        "name": "Page",
                         "in": "query",
                         "required": true
                     },
                     {
                         "type": "integer",
                         "description": "活动id",
-                        "name": "activity_id",
+                        "name": "ActivityId",
                         "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "用户id",
-                        "name": "user_id",
+                        "name": "UserId",
                         "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "1通过,0不通过",
-                        "name": "status",
+                        "name": "Status",
                         "in": "query"
                     }
                 ],
@@ -177,7 +177,7 @@ var doc = `{
                     {
                         "type": "string",
                         "description": "活动id",
-                        "name": "activity_id",
+                        "name": "ActivityId",
                         "in": "formData",
                         "required": true
                     }
@@ -242,7 +242,7 @@ var doc = `{
                     {
                         "type": "file",
                         "description": "上传图片",
-                        "name": "file",
+                        "name": "File",
                         "in": "formData",
                         "required": true
                     }
@@ -262,6 +262,38 @@ var doc = `{
                     },
                     "500": {
                         "description": "{\"code\":500,\"data\":null,\"msg\":\"上传失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除图片",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "活动主题",
+                        "name": "ImageName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":null,\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"删除失败\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -369,7 +401,7 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "page",
-                        "name": "page",
+                        "name": "Page",
                         "in": "query",
                         "required": true
                     }
