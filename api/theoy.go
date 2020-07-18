@@ -44,9 +44,7 @@ func Theoies(c *gin.Context) {
 // @Accept multipart/form-data
 // @Produce json
 // @Param Title formData string true "理论标题"
-// @Param Content formData int true "理论内容"
-// @Param num formData string true "阅读数量"
-// @Param Create_time formData string true "添加时间"
+// @Param Content formData string true "理论内容"
 // @Param Status formData int true "1正常显示,0不显示"
 // @Success 201 {string} json "{"code":201,"data":{},"msg":"ok"}"
 // @Failure 400 {string} json "{"code":400,"data":null,"msg":"请求参数错误"}"

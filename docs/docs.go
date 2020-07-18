@@ -123,6 +123,52 @@ var doc = `{
                 }
             }
         },
+        "/api/v1/applies": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "活动报名列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "活动id",
+                        "name": "activity_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "用户id",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1通过,0不通过",
+                        "name": "status",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/banners": {
             "get": {
                 "produces": [
@@ -321,23 +367,9 @@ var doc = `{
                         "required": true
                     },
                     {
-                        "type": "integer",
+                        "type": "string",
                         "description": "理论内容",
                         "name": "Content",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "阅读数量",
-                        "name": "num",
-                        "in": "formData",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "添加时间",
-                        "name": "Create_time",
                         "in": "formData",
                         "required": true
                     },

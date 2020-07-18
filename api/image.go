@@ -9,6 +9,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -39,7 +41,8 @@ func CreateImages(c *gin.Context) {
 		appG.Response(consts.ERROR, consts.ERROR_UPLOAD_SAVE_IMAGE_FAIL, nil)
 		return
 	}
-	filepath := "http://58.87.121.2/uploads/" + filename
+	now := strconv.FormatInt(time.Now().Unix(), 10)
+	filepath := "http://58.87.121.2/uploads/" + now + "_" + filename
 	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
 }
 
