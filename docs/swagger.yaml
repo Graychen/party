@@ -2,12 +2,28 @@ info:
   contact: {}
   license: {}
 paths:
-  /api/v1/activities:
+  /api/v1/activitie:
     get:
       parameters:
       - description: Id
         in: query
-        name: Id
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 活动详情
+  /api/v1/activities:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: Page
         required: true
         type: integer
       produces:
@@ -189,11 +205,11 @@ paths:
       parameters:
       - description: 类型1团队风采,2活动风采
         in: query
-        name: type
+        name: Type
         type: integer
-      - description: page
+      - description: Page
         in: query
-        name: page
+        name: Page
         required: true
         type: integer
       produces:

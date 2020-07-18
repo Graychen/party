@@ -25,6 +25,31 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/v1/activitie": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "活动详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/activities": {
             "get": {
                 "produces": [
@@ -34,8 +59,8 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "Id",
-                        "name": "Id",
+                        "description": "Page",
+                        "name": "Page",
                         "in": "query",
                         "required": true
                     }
@@ -311,13 +336,13 @@ var doc = `{
                     {
                         "type": "integer",
                         "description": "类型1团队风采,2活动风采",
-                        "name": "type",
+                        "name": "Type",
                         "in": "query"
                     },
                     {
                         "type": "integer",
-                        "description": "page",
-                        "name": "page",
+                        "description": "Page",
+                        "name": "Page",
                         "in": "query",
                         "required": true
                     }
