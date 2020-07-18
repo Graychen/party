@@ -18,7 +18,7 @@ import (
 func Banners(c *gin.Context) {
 	var banner model.Banner
 	appG := util.Gin{C: c}
-	page := c.Query("page")
+	page := c.Query("Page")
 	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := banner.List(pageNumber)

@@ -33,3 +33,15 @@ func (activity *Activity) Create(obj interface{}) (activities []Activity, err er
 	}
 	return
 }
+
+//详情
+func (activity *Activity) First(id int) (activities []Activity, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = orm.Eloquent.First(&activities).Error; err != nil {
+		return
+	}
+	return
+}
