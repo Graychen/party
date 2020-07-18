@@ -42,7 +42,7 @@ func CreateImages(c *gin.Context) {
 		return
 	}
 	now := strconv.FormatInt(time.Now().Unix(), 10)
-	filepath := "http://58.87.121.2/uploads/" + now + "_" + filename
+	filepath := "uploads/" + now + "_" + filename
 	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
 }
 

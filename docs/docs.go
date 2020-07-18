@@ -141,27 +141,62 @@ var doc = `{
                         "type": "integer",
                         "description": "活动id",
                         "name": "activity_id",
-                        "in": "query",
-                        "required": true
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "用户id",
                         "name": "user_id",
-                        "in": "query",
-                        "required": true
+                        "in": "query"
                     },
                     {
                         "type": "integer",
                         "description": "1通过,0不通过",
                         "name": "status",
-                        "in": "query",
-                        "required": true
+                        "in": "query"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "申请活动报名",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "活动id",
+                        "name": "activity_id",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"code\":201,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
                         "schema": {
                             "type": "string"
                         }
