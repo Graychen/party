@@ -29,7 +29,7 @@ func InitRouter() *gin.Engine {
 		})
 	})
 	apiVersionOne.GET("activities", api.Activities)
-	apiVersionOne.GET("activitie/:id", api.Activity)
+	apiVersionOne.GET("activities/:id", api.Activity)
 	apiVersionOne.POST("activities", api.CreateActivity)
 	apiVersionOne.GET("images", api.Images)
 	apiVersionOne.POST("images", api.CreateImages)

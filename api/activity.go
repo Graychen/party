@@ -43,13 +43,13 @@ func Activities(c *gin.Context) {
 
 // @Summary 活动详情
 // @Produce json
-// @Param id query int true "Id"
+// @Param id path int true "Id"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
-// @Router /api/v1/activitie [get]
+// @Router /api/v1/activities/{id} [get]
 func Activity(c *gin.Context) {
 	var activity model.Activity
 	appG := util.Gin{C: c}
-	id := c.Query("id")
+	id := c.Param("id")
 	IdNumber, _ := strconv.Atoi(id)
 
 	result, err := activity.First(IdNumber)

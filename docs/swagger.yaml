@@ -2,22 +2,6 @@ info:
   contact: {}
   license: {}
 paths:
-  /api/v1/activitie:
-    get:
-      parameters:
-      - description: Id
-        in: query
-        name: id
-        required: true
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"code":200,"data":{},"msg":"ok"}'
-          schema:
-            type: string
-      summary: 活动详情
   /api/v1/activities:
     get:
       parameters:
@@ -84,6 +68,22 @@ paths:
           schema:
             type: string
       summary: 添加活动
+  /api/v1/activities/{id}:
+    get:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 活动详情
   /api/v1/applies:
     get:
       parameters:
