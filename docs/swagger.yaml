@@ -68,6 +68,37 @@ paths:
           schema:
             type: string
       summary: 添加活动
+  /api/v1/applies:
+    get:
+      parameters:
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: 活动id
+        in: query
+        name: activity_id
+        required: true
+        type: integer
+      - description: 用户id
+        in: query
+        name: user_id
+        required: true
+        type: integer
+      - description: 1通过,0不通过
+        in: query
+        name: status
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 活动报名列表
   /api/v1/banners:
     get:
       parameters:
@@ -199,16 +230,6 @@ paths:
       - description: 理论内容
         in: formData
         name: Content
-        required: true
-        type: integer
-      - description: 阅读数量
-        in: formData
-        name: num
-        required: true
-        type: string
-      - description: 添加时间
-        in: formData
-        name: Create_time
         required: true
         type: string
       - description: 1正常显示,0不显示
