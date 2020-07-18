@@ -18,20 +18,22 @@ import (
 // @Summary 上传图片
 // @Accept multipart/form-data
 // @Produce json
-// @Param file formData file true "上传图片"
+// @Param File formData file true "上传图片"
 // @Success 201 {string} json "{"code":201,"data":{},"msg":"ok"}"
 // @Failure 400 {string} json "{"code":400,"data":null,"msg":"图片验证失败"}"
 // @Failure 500 {string} json "{"code":500,"data":null,"msg":"上传失败"}"
 // @Router /api/v1/images [post]
 func CreateImages(c *gin.Context) {
 	appG := util.Gin{C: c}
-	file, header, err := c.Request.FormFile("file")
+	file, header, err := c.Request.FormFile("File")
 	filename := header.Filename
 	if err != nil {
 		appG.Response(http.StatusBadRequest, consts.ERROR_UPLOAD_CHECK_IMAGE_FAIL, nil)
 		return
 	}
-	out, err := os.Create("uploads/" + filename)
+	now := strconv.FormatInt(time.Now().Unix(), 10)
+	newFileName := now + "_" + filename
+	out, err := os.Create("uploads/" + newFileName)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -41,8 +43,7 @@ func CreateImages(c *gin.Context) {
 		appG.Response(consts.ERROR, consts.ERROR_UPLOAD_SAVE_IMAGE_FAIL, nil)
 		return
 	}
-	now := strconv.FormatInt(time.Now().Unix(), 10)
-	filepath := "uploads/" + now + "_" + filename
+	filepath := "uploads/" + newFileName
 	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
 }
 
@@ -56,4 +57,22 @@ func Images(c *gin.Context) {
 		return
 	}
 	fmt.Println(info)
+}
+
+// @Summary 删除图片
+// @Accept multipart/form-data
+// @Produce json
+// @Param ImageName query string true "活动主题"
+// @Success 204 {string} json "{"code":204,"data":null,"msg":"删除成功"}"
+// @Failure 500 {string} json "{"code":500,"data":null,"msg":"删除失败"}"
+// @Router /api/v1/images [delete]
+func DeleteImages(c *gin.Context) {
+	appG := util.Gin{C: c}
+	imageName := c.Query("ImageName")
+	del := os.Remove("uploads/" + imageName)
+	if del != nil {
+		appG.Response(http.StatusInternalServerError, consts.ERROR_DELETE_TAG_FAIL, nil)
+		return
+	}
+	appG.Response(http.StatusNoContent, consts.SUCCESS, nil)
 }

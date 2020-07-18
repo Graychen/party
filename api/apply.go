@@ -21,19 +21,19 @@ type apply struct {
 
 // @Summary 活动报名列表
 // @Produce json
-// @Param page query int true "page"
-// @Param activity_id query int false "活动id"
-// @Param user_id query int false "用户id"
-// @Param status query int false "1通过,0不通过"
+// @Param Page query int true "Page"
+// @Param ActivityId query int false "活动id"
+// @Param UserId query int false "用户id"
+// @Param Status query int false "1通过,0不通过"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
 // @Router /api/v1/applies [get]
 func Applies(c *gin.Context) {
 	var apply model.Apply
 	appG := util.Gin{C: c}
-	page := c.Query("page")
-	activityId := c.Query("activity_id")
-	userId := c.Query("user_id")
-	status := c.Query("status")
+	page := c.Query("Page")
+	activityId := c.Query("ActivityId")
+	userId := c.Query("UserId")
+	status := c.Query("Status")
 	pageNumber, _ := strconv.Atoi(page)
 	activityIdNumber, _ := strconv.Atoi(activityId)
 	userIdNumber, _ := strconv.Atoi(userId)
@@ -49,7 +49,7 @@ func Applies(c *gin.Context) {
 // @Summary 申请活动报名
 // @Accept multipart/form-data
 // @Produce json
-// @Param activity_id formData string true "活动id"
+// @Param ActivityId formData string true "活动id"
 // @Success 201 {string} json "{"code":201,"data":{},"msg":"ok"}"
 // @Failure 400 {string} json "{"code":400,"data":null,"msg":"请求参数错误"}"
 // @Failure 500 {string} json "{"code":500,"data":null,"msg":"添加文章失败"}"
@@ -58,7 +58,7 @@ func CreateApply(c *gin.Context) {
 	var applyModel model.Apply
 	valid := validation.Validation{}
 	appG := util.Gin{C: c}
-	activity_id := c.PostForm("activity_id")
+	activity_id := c.PostForm("ActivityId")
 	user_id := "1"
 	status := "1"
 	now := time.Now().Unix()

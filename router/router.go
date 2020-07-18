@@ -32,6 +32,7 @@ func InitRouter() *gin.Engine {
 	apiVersionOne.POST("activities", api.CreateActivity)
 	apiVersionOne.GET("images", api.Images)
 	apiVersionOne.POST("images", api.CreateImages)
+	apiVersionOne.DELETE("images", api.DeleteImages)
 	apiVersionOne.GET("theoies", api.Theoies)
 	apiVersionOne.GET("banners", api.Banners)
 	apiVersionOne.GET("miens", api.Miens)

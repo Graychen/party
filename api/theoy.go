@@ -22,13 +22,13 @@ type theoy struct {
 
 // @Summary 理论分享列表
 // @Produce json
-// @Param page query int true "page"
+// @Param Page query int true "page"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
 // @Router /api/v1/theoies [get]
 func Theoies(c *gin.Context) {
 	var theoy model.Theoy
 	appG := util.Gin{C: c}
-	page := c.Query("page")
+	page := c.Query("Page")
 	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := theoy.List(pageNumber)

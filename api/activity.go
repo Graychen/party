@@ -24,16 +24,35 @@ type activity struct {
 
 // @Summary 活动列表
 // @Produce json
-// @Param page query int true "page"
+// @Param Page query int true "Page"
 // @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
 // @Router /api/v1/activities [get]
 func Activities(c *gin.Context) {
 	var activity model.Activity
 	appG := util.Gin{C: c}
-	page := c.Query("page")
+	page := c.Query("Page")
 	pageNumber, _ := strconv.Atoi(page)
 
 	result, err := activity.List(pageNumber)
+	if err != nil {
+		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
+		return
+	}
+	appG.Response(http.StatusOK, consts.SUCCESS, result)
+}
+
+// @Summary 活动列表
+// @Produce json
+// @Param Id query int true "Id"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/activities [get]
+func Activity(c *gin.Context) {
+	var activity model.Activity
+	appG := util.Gin{C: c}
+	id := c.Query("Id")
+	IdNumber, _ := strconv.Atoi(id)
+
+	result, err := activity.First(IdNumber)
 	if err != nil {
 		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
 		return
