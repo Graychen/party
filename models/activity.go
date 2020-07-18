@@ -40,7 +40,7 @@ func (activity *Activity) First(id int) (activities []Activity, err error) {
 	if id != 0 {
 		model = model.Where("id = ?", id)
 	}
-	if err = orm.Eloquent.First(&activities).Error; err != nil {
+	if err = model.First(&activities).Error; err != nil {
 		return
 	}
 	return
