@@ -31,3 +31,15 @@ func (theoy *Theoy) Create(obj interface{}) (theoies []Theoy, err error) {
 	}
 	return
 }
+
+//详情
+func (theoy *Theoy) First(id int) (theoies []Theoy, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = model.First(&theoies).Error; err != nil {
+		return
+	}
+	return
+}

@@ -43,6 +43,25 @@ func Miens(c *gin.Context) {
 	appG.Response(http.StatusOK, consts.SUCCESS, result)
 }
 
+// @Summary 风采详情
+// @Produce json
+// @Param id path int true "Id"
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /api/v1/miens/{id} [get]
+func Mien(c *gin.Context) {
+	var mien model.Mien
+	appG := util.Gin{C: c}
+	id := c.Param("id")
+	IdNumber, _ := strconv.Atoi(id)
+
+	result, err := mien.First(IdNumber)
+	if err != nil {
+		appG.Response(consts.ERROR, consts.ERROR_GET_ARTICLES_FAIL, nil)
+		return
+	}
+	appG.Response(http.StatusOK, consts.SUCCESS, result)
+}
+
 // @Summary 添加风采
 // @Accept multipart/form-data
 // @Produce json

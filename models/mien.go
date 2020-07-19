@@ -30,8 +30,20 @@ func (mien *Mien) List(page int, mienType int) (miens []Mien, err error) {
 }
 
 //创建
-func (mien *Mien) Create(obj interface{}) (activities []Mien, err error) {
+func (mien *Mien) Create(obj interface{}) (miens []Mien, err error) {
 	if err = orm.Eloquent.Create(obj).Error; err != nil {
+		return
+	}
+	return
+}
+
+//详情
+func (mien *Mien) First(id int) (miens []Mien, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = model.First(&miens).Error; err != nil {
 		return
 	}
 	return
