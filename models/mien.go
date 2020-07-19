@@ -11,6 +11,7 @@ type Mien struct {
 	ID         int    `gorm:"column:id;primary_key"`
 	Num        int    `gorm:"column:num"`
 	Status     int    `gorm:"column:status"`
+	ListImgUrl string `gorm:"column:list_img_url"`
 	Title      string `gorm:"column:title"`
 	Type       int    `gorm:"column:type"`
 }

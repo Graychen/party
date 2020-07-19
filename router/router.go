@@ -35,7 +35,8 @@ func InitRouter() *gin.Engine {
 	apiVersionOne.POST("images", api.CreateImages)
 	apiVersionOne.DELETE("images", api.DeleteImages)
 	apiVersionOne.GET("theoies", api.Theoies)
-	apiVersionOne.GET("theoies/:id", api.Mien)
+	apiVersionOne.GET("theoies/:id", api.Theoy)
+	apiVersionOne.POST("theoies", api.CreateTheoy)
 	apiVersionOne.GET("banners", api.Banners)
 	apiVersionOne.GET("miens", api.Miens)
 	apiVersionOne.GET("miens/:id", api.Mien)
@@ -45,5 +46,8 @@ func InitRouter() *gin.Engine {
 	apiVersionOne.GET("dynamics", api.Dynamics)
 	apiVersionOne.GET("dynamics/:id", api.Dynamic)
 	apiVersionOne.POST("dynamics", api.CreateDynamic)
+	apiVersionOne.GET("days", api.Days)
+	apiVersionOne.GET("days/:id", api.Day)
+	apiVersionOne.POST("days", api.CreateDay)
 	return router
 }

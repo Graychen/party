@@ -15,6 +15,7 @@ import (
 type activity struct {
 	Theme      string `json:"Theme" form:"Theme" valid:"Required; MaxSize(100)"`
 	Time       string `json:"Time" form:"Time" valid:"Required; MaxSize(30)"`
+	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required; MaxSize(30)"`
 	Address    string `json:"Address" form:"Address" valid:"Required; MaxSize(30)"`
 	Content    string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
 	Totol      string `json:"Totol" form:"Totol"  valid:"Required; MaxSize(30)"`
@@ -67,6 +68,7 @@ func Activity(c *gin.Context) {
 // @Param Time formData int true "活动时间"
 // @Param Address formData string true "活动地址"
 // @Param Content formData string true "活动内容"
+// @Param ListImgUrl formData string true "封面图片url"
 // @Param Totol formData int true "活动人数"
 // @Param Status formData int true "1正常显示,0不显示"
 // @Success 201 {string} json "{"code":201,"data":{},"msg":"ok"}"
@@ -83,9 +85,10 @@ func CreateActivity(c *gin.Context) {
 	content := c.PostForm("Content")
 	totol := c.PostForm("Totol")
 	status := c.PostForm("Status")
+	listImgUrl := c.PostForm("ListImgUrl")
 	now := time.Now().Unix()
 	nowString := strconv.FormatInt(now, 10)
-	param := &activity{Theme: theme, Time: activityTime, Address: address, Content: content, Totol: totol, Status: status, CreateTime: nowString}
+	param := &activity{Theme: theme, Time: activityTime, Address: address, Content: content, Totol: totol, Status: status, CreateTime: nowString, ListImgUrl: listImgUrl}
 	ok, _ := valid.Valid(param)
 	if !ok {
 		appG.Response(http.StatusBadRequest, consts.INVALID_PARAMS, nil)

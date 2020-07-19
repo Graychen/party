@@ -10,6 +10,7 @@ type Theoy struct {
 	CreateTime int    `gorm:"column:create_time"`
 	ID         int    `gorm:"column:id;primary_key"`
 	Num        int    `gorm:"column:num"`
+	ListImgUrl string `gorm:"column:list_img_url"`
 	Status     int    `gorm:"column:status"`
 	Title      string `gorm:"column:title"`
 }

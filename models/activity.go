@@ -11,6 +11,7 @@ type Activity struct {
 	Time       int    `gorm:"column:time"`
 	Address    string `gorm:"column:address"`
 	Content    string `gorm:"column:content"`
+	ListImgUrl string `gorm:"column:list_img_url"`
 	Totol      int    `gorm:"column:totol"`
 	Status     int    `gorm:"column:status"`
 	CreateTime int    `gorm:"column:create_time"`

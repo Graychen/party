@@ -2,7 +2,7 @@
 -- Table structure for office 科室表  
 -- ----------------------------
 CREATE TABLE IF NOT EXISTS party_office(
-   id INT(11),
+   id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
    user_id INT(11) NOT NULL COMMENT '用户id',
    branch INT(11) NOT NULL COMMENT '第几支部',
    role INT(11) NOT NULL COMMENT '角色 1:支部书记,2:委员会成员,3:所以成员',
