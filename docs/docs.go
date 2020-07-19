@@ -308,15 +308,22 @@ var doc = `{
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "党建动态标题",
-                        "name": "Title",
+                        "description": "地点",
+                        "name": "Address",
                         "in": "formData",
                         "required": true
                     },
                     {
                         "type": "string",
-                        "description": "党建动态内容",
+                        "description": "活动内容",
                         "name": "Content",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动名称",
+                        "name": "Name",
                         "in": "formData",
                         "required": true
                     },
@@ -324,6 +331,27 @@ var doc = `{
                         "type": "string",
                         "description": "封面图片url",
                         "name": "ListImgUrl",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "参加对象",
+                        "name": "Joined",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "记录人",
+                        "name": "Record",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "时间",
+                        "name": "Time",
                         "in": "formData",
                         "required": true
                     }

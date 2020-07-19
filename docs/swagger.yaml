@@ -186,19 +186,39 @@ paths:
       consumes:
       - multipart/form-data
       parameters:
-      - description: 党建动态标题
+      - description: 地点
         in: formData
-        name: Title
+        name: Address
         required: true
         type: string
-      - description: 党建动态内容
+      - description: 活动内容
         in: formData
         name: Content
+        required: true
+        type: string
+      - description: 活动名称
+        in: formData
+        name: Name
         required: true
         type: string
       - description: 封面图片url
         in: formData
         name: ListImgUrl
+        required: true
+        type: string
+      - description: 参加对象
+        in: formData
+        name: Joined
+        required: true
+        type: string
+      - description: 记录人
+        in: formData
+        name: Record
+        required: true
+        type: string
+      - description: 时间
+        in: formData
+        name: Time
         required: true
         type: string
       produces:

@@ -4,9 +4,7 @@ import (
 	"danjian/consts"
 	"danjian/util"
 	"fmt"
-	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -23,6 +21,24 @@ import (
 // @Failure 400 {string} json "{"code":400,"data":null,"msg":"图片验证失败"}"
 // @Failure 500 {string} json "{"code":500,"data":null,"msg":"上传失败"}"
 // @Router /api/v1/images [post]
+func CreateImages(c *gin.Context) {
+	appG := util.Gin{C: c}
+	file, err := c.FormFile("File")
+	if err != nil {
+		appG.Response(http.StatusBadRequest, consts.ERROR_UPLOAD_CHECK_IMAGE_FAIL, nil)
+		return
+	}
+	now := strconv.FormatInt(time.Now().Unix(), 10)
+	file.Filename = now + "_" + file.Filename
+	if err := c.SaveUploadedFile(file, "uploads/"+file.Filename); err != nil {
+		appG.Response(consts.ERROR, consts.ERROR_UPLOAD_SAVE_IMAGE_FAIL, nil)
+		return
+	}
+	filepath := "uploads/" + file.Filename
+	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
+}
+
+/*
 func CreateImages(c *gin.Context) {
 	appG := util.Gin{C: c}
 	file, header, err := c.Request.FormFile("File")
@@ -46,6 +62,7 @@ func CreateImages(c *gin.Context) {
 	filepath := "uploads/" + newFileName
 	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
 }
+*/
 
 func Images(c *gin.Context) {
 	appG := util.Gin{C: c}
