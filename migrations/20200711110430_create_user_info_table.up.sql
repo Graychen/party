@@ -2,7 +2,7 @@
 -- Table structure for user_info 用户信息表  
 -- ----------------------------
 CREATE TABLE IF NOT EXISTS party_user_info(
-   id INT(11),
+   id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
    user_id INT(11) NOT NULL COMMENT '用户id',
    tel INT(11) NOT NULL COMMENT '分机号（仅限企业内部开发调用)',
    work_place VARCHAR(50) NOT NULL COMMENT '办公地点',

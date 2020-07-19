@@ -42,6 +42,11 @@ paths:
         name: Content
         required: true
         type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        required: true
+        type: string
       - description: 活动人数
         in: formData
         name: Totol
@@ -153,6 +158,81 @@ paths:
           schema:
             type: string
       summary: 首页封面列表
+  /api/v1/days:
+    get:
+      parameters:
+      - description: Page
+        in: query
+        name: Page
+        required: true
+        type: integer
+      - description: Status
+        in: query
+        name: Status
+        type: integer
+      - description: Limit
+        in: query
+        name: Limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 主题党日列表
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 党建动态标题
+        in: formData
+        name: Title
+        required: true
+        type: string
+      - description: 党建动态内容
+        in: formData
+        name: Content
+        required: true
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 主题党日动态
+  /api/v1/days/{id}:
+    get:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 主题党日详情
   /api/v1/dynamics:
     get:
       parameters:
@@ -185,6 +265,11 @@ paths:
       - description: 党建动态内容
         in: formData
         name: Content
+        required: true
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
         required: true
         type: string
       produces:
@@ -305,6 +390,11 @@ paths:
         name: Content
         required: true
         type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        required: true
+        type: string
       - description: 1正常显示,0不显示
         in: formData
         name: Status
@@ -358,23 +448,6 @@ paths:
           schema:
             type: string
       summary: 理论分享列表
-  /api/v1/theoies/{id}:
-    get:
-      parameters:
-      - description: Id
-        in: path
-        name: id
-        required: true
-        type: integer
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"code":200,"data":{},"msg":"ok"}'
-          schema:
-            type: string
-      summary: 理论详情
-  /api/v1/theoy:
     post:
       consumes:
       - multipart/form-data
@@ -394,6 +467,11 @@ paths:
         name: Status
         required: true
         type: integer
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -410,6 +488,22 @@ paths:
           schema:
             type: string
       summary: 添加理论分享
+  /api/v1/theoies/{id}:
+    get:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 理论详情
   /login:
     get:
       parameters:

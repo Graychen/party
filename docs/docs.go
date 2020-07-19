@@ -87,6 +87,13 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
                         "type": "integer",
                         "description": "活动人数",
                         "name": "Totol",
@@ -254,6 +261,120 @@ var doc = `{
                 }
             }
         },
+        "/api/v1/days": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "主题党日列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Page",
+                        "name": "Page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Status",
+                        "name": "Status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Limit",
+                        "name": "Limit",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "主题党日动态",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "党建动态标题",
+                        "name": "Title",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "党建动态内容",
+                        "name": "Content",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"code\":201,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/days/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "主题党日详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/dynamics": {
             "get": {
                 "produces": [
@@ -304,6 +425,13 @@ var doc = `{
                         "type": "string",
                         "description": "党建动态内容",
                         "name": "Content",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
                         "in": "formData",
                         "required": true
                     }
@@ -488,6 +616,13 @@ var doc = `{
                         "required": true
                     },
                     {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
                         "type": "integer",
                         "description": "1正常显示,0不显示",
                         "name": "Status",
@@ -565,34 +700,7 @@ var doc = `{
                         }
                     }
                 }
-            }
-        },
-        "/api/v1/theoies/{id}": {
-            "get": {
-                "produces": [
-                    "application/json"
-                ],
-                "summary": "理论详情",
-                "parameters": [
-                    {
-                        "type": "integer",
-                        "description": "Id",
-                        "name": "id",
-                        "in": "path",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/api/v1/theoy": {
+            },
             "post": {
                 "consumes": [
                     "multipart/form-data"
@@ -622,6 +730,13 @@ var doc = `{
                         "name": "Status",
                         "in": "formData",
                         "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -639,6 +754,31 @@ var doc = `{
                     },
                     "500": {
                         "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/theoies/{id}": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "理论详情",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }

@@ -12,6 +12,7 @@ type Dynamic struct {
 	CreateTime int    `gorm:"column:create_time"`
 	ID         int    `gorm:"column:id;primary_key"`
 	Status     int    `gorm:"column:status"`
+	ListImgUrl string `gorm:"column:list_img_url"`
 	Num        int    `gorm:"column:num"`
 }
 
