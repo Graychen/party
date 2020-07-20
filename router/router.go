@@ -3,6 +3,7 @@ package router
 import (
 	"danjian/api"
 	_ "danjian/docs"
+	"danjian/middleware/logger"
 	"net/http"
 
 	//"danjian/middleware/jwt"
@@ -16,9 +17,10 @@ func InitRouter() *gin.Engine {
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/login", api.Login)
 	router.StaticFS("/uploads", http.Dir("uploads"))
+	router.StaticFS("/logs", http.Dir("logs"))
 	apiVersionOne := router.Group("/api/v1/")
-
 	//apiVersionOne.Use(jwt.Jwt())
+	apiVersionOne.Use(logger.LoggerToFile())
 
 	apiVersionOne.GET("hello", func(c *gin.Context) {
 		c.JSON(200, gin.H{
