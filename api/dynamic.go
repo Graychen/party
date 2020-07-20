@@ -13,12 +13,12 @@ import (
 )
 
 type dynamic struct {
-	Title      string `json:"Title" form:"Title" valid:"Required; MaxSize(30)"`
-	Content    string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
-	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required; MaxSize(30)"`
-	Num        string `json:"Num" form:"Num"  valid:"Required; MaxSize(30)"`
-	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required; MaxSize(30)"`
-	Status     string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
+	Title      string `json:"Title" form:"Title" valid:"Required"`
+	Content    string `json:"Content" form:"Content" valid:"Required"`
+	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required"`
+	Num        string `json:"Num" form:"Num"  valid:"Required"`
+	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required"`
+	Status     string `json:"Status" form:"Status" valid:"Required"`
 }
 
 // @Summary 党建动态列表

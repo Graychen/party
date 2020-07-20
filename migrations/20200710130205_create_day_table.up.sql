@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS party_day(
    content TEXT NOT NULL COMMENT '活动内容',
    joined VARCHAR(50) NOT NULL COMMENT '参加对象',
    record VARCHAR(30) NOT NULL COMMENT '记录人',
-   list_img_url VARCHAR(30) COMMENT '封面图片url',
+   list_img_url VARCHAR(255) COMMENT '封面图片url',
    status TINYINT(2) NOT NULL COMMENT '1正常显示,0不显示',
    create_time INT(11) unsigned DEFAULT 0 COMMENT '添加时间',
    PRIMARY KEY ( id )

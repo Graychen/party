@@ -5,3 +5,4 @@ __debug_bin
 package.json
 package-lock.json
 uploads
+logs

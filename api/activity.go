@@ -13,14 +13,14 @@ import (
 )
 
 type activity struct {
-	Theme      string `json:"Theme" form:"Theme" valid:"Required; MaxSize(100)"`
-	Time       string `json:"Time" form:"Time" valid:"Required; MaxSize(30)"`
-	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required; MaxSize(30)"`
-	Address    string `json:"Address" form:"Address" valid:"Required; MaxSize(30)"`
-	Content    string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
-	Totol      string `json:"Totol" form:"Totol"  valid:"Required; MaxSize(30)"`
-	Status     string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
-	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required; MaxSize(30)"`
+	Theme      string `json:"Theme" form:"Theme" valid:"Required"`
+	Time       string `json:"Time" form:"Time" valid:"Required"`
+	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required"`
+	Address    string `json:"Address" form:"Address" valid:"Required"`
+	Content    string `json:"Content" form:"Content" valid:"Required"`
+	Totol      string `json:"Totol" form:"Totol"  valid:"Required"`
+	Status     string `json:"Status" form:"Status" valid:"Required"`
+	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required"`
 }
 
 // @Summary 活动列表

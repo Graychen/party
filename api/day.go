@@ -13,15 +13,15 @@ import (
 )
 
 type day struct {
-	Address    string `json:"Address" form:"Address" valid:"Required; MaxSize(30)"`
-	Content    string `json:"Content" form:"Content" valid:"Required; MaxSize(500)"`
-	Joined     string `json:"Joined" form:"Joined"  valid:"Required; MaxSize(30)"`
-	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required; MaxSize(30)"`
-	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required; MaxSize(30)"`
-	Status     string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
-	Name       string `json:"Name" form:"Name"  valid:"Required; MaxSize(30)"`
-	Record     string `json:"Record" form:"Record"  valid:"Required; MaxSize(30)"`
-	Time       string `json:"Time" form:"Time" valid:"Required; MaxSize(30)"`
+	Address    string `json:"Address" form:"Address" valid:"Required"`
+	Content    string `json:"Content" form:"Content" valid:"Required"`
+	Joined     string `json:"Joined" form:"Joined"  valid:"Required"`
+	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required"`
+	ListImgUrl string `json:"ListImgUrl" form:"ListImgUrl" valid:"Required"`
+	Status     string `json:"Status" form:"Status" valid:"Required"`
+	Name       string `json:"Name" form:"Name"  valid:"Required"`
+	Record     string `json:"Record" form:"Record"  valid:"Required"`
+	Time       string `json:"Time" form:"Time" valid:"Required"`
 }
 
 // @Summary 主题党日列表
