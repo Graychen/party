@@ -13,10 +13,10 @@ import (
 )
 
 type apply struct {
-	ActivityId string `json:"ActivityId" form:"ActivityId" valid:"Required; MaxSize(10)"`
-	UserId     string `json:"UserId" form:"UserId" valid:"Required; MaxSize(30)"`
-	Status     string `json:"Status" form:"Status" valid:"Required; MaxSize(30)"`
-	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required; MaxSize(30)"`
+	ActivityId string `json:"ActivityId" form:"ActivityId" valid:"Required"`
+	UserId     string `json:"UserId" form:"UserId" valid:"Required"`
+	Status     string `json:"Status" form:"Status" valid:"Required"`
+	CreateTime string `json:"CreateTime" form:"CreateTime"  valid:"Required"`
 }
 
 // @Summary 活动报名列表
