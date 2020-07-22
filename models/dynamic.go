@@ -50,3 +50,52 @@ func (dynamic *Dynamic) First(id int) (dynamics []Dynamic, err error) {
 	}
 	return
 }
+
+//修改
+func (dynamic *Dynamic) Update(id string, title string, content string, status string, num string, nowString string, listImgUrl string) (dynamics []Dynamic, err error) {
+	IdNumber, _ := strconv.Atoi(id)
+	numNumber, _ := strconv.Atoi(num)
+	dynamicTimeNumber, _ := strconv.Atoi(nowString)
+	statusNumber, _ := strconv.Atoi(status)
+	model := orm.Eloquent
+	if err = model.First(&dynamic, IdNumber).Error; err != nil {
+		return
+	}
+	if title != "" {
+		dynamic.Title = title
+	}
+	if content != "" {
+		dynamic.Content = content
+	}
+	if num != "" {
+		dynamic.Num = numNumber
+	}
+	if content != "" {
+		dynamic.Content = content
+	}
+	if status != "" {
+		dynamic.Status = statusNumber
+	}
+	if nowString != "" {
+		dynamic.CreateTime = dynamicTimeNumber
+	}
+	if listImgUrl != "" {
+		dynamic.ListImgUrl = listImgUrl
+	}
+	if err = model.Save(&dynamic).Error; err != nil {
+		return
+	}
+	return
+}
+
+//删除
+func (dynamic *Dynamic) Delete(id int) (dynamics []Dynamic, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = model.Delete(&dynamic).Error; err != nil {
+		return
+	}
+	return
+}

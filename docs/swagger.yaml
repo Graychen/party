@@ -74,6 +74,21 @@ paths:
             type: string
       summary: 添加活动
   /api/v1/activities/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除活动
     get:
       parameters:
       - description: Id
@@ -89,6 +104,63 @@ paths:
           schema:
             type: string
       summary: 活动详情
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 活动主题
+        in: formData
+        name: Theme
+        type: string
+      - description: 活动时间
+        in: formData
+        name: Time
+        type: integer
+      - description: 活动地址
+        in: formData
+        name: Address
+        type: string
+      - description: 活动内容
+        in: formData
+        name: Content
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        type: string
+      - description: 活动人数
+        in: formData
+        name: Totol
+        type: integer
+      - description: 1正常显示,0不显示
+        in: formData
+        name: Status
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "404":
+          description: '{"code":404,"data":null,"msg":"没有这个资源"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 修改活动
   /api/v1/applies:
     get:
       parameters:
@@ -158,6 +230,52 @@ paths:
           schema:
             type: string
       summary: 首页封面列表
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: 图片url
+        in: formData
+        name: ImgUrl
+        required: true
+        type: string
+      - description: 1：党建工作室 2：活动报名 3：理论分享 4：主题党日 5：党建动态
+        in: formData
+        name: Type
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 添加封面图片
+  /api/v1/banners/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除封面
   /api/v1/days:
     get:
       parameters:
@@ -238,6 +356,21 @@ paths:
             type: string
       summary: 主题党日动态
   /api/v1/days/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除主题党日动态
     get:
       parameters:
       - description: Id
@@ -253,6 +386,63 @@ paths:
           schema:
             type: string
       summary: 主题党日详情
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 地点
+        in: formData
+        name: Address
+        type: string
+      - description: 活动内容
+        in: formData
+        name: Content
+        type: string
+      - description: 活动名称
+        in: formData
+        name: Name
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        type: string
+      - description: 参加对象
+        in: formData
+        name: Joined
+        type: string
+      - description: 记录人
+        in: formData
+        name: Record
+        type: string
+      - description: 时间
+        in: formData
+        name: Time
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":201,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "404":
+          description: '{"code":404,"data":null,"msg":"没有这个资源"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 修改主题党日动态
   /api/v1/dynamics:
     get:
       parameters:
@@ -309,6 +499,21 @@ paths:
             type: string
       summary: 添加党建动态
   /api/v1/dynamics/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除党建动态
     get:
       parameters:
       - description: Id
@@ -324,6 +529,47 @@ paths:
           schema:
             type: string
       summary: 党建动态详情
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 党建动态标题
+        in: formData
+        name: Title
+        type: string
+      - description: 党建动态内容
+        in: formData
+        name: Content
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "404":
+          description: '{"code":404,"data":null,"msg":"没有这个资源"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 修改党建动态
   /api/v1/images:
     delete:
       consumes:
@@ -437,6 +683,21 @@ paths:
             type: string
       summary: 添加风采
   /api/v1/miens/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除风采
     get:
       parameters:
       - description: Id
@@ -452,6 +713,55 @@ paths:
           schema:
             type: string
       summary: 风采详情
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 类型1团队风采,2活动风采
+        in: formData
+        name: Type
+        type: string
+      - description: 风采标题
+        in: formData
+        name: Title
+        type: string
+      - description: 风采内容
+        in: formData
+        name: Content
+        type: string
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        type: string
+      - description: 1正常显示,0不显示
+        in: formData
+        name: Status
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "404":
+          description: '{"code":404,"data":null,"msg":"没有这个资源"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 修改风采
   /api/v1/theoies:
     get:
       parameters:
@@ -509,6 +819,21 @@ paths:
             type: string
       summary: 添加理论分享
   /api/v1/theoies/{id}:
+    delete:
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: '{"code":204,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: 删除风采
     get:
       parameters:
       - description: Id
@@ -524,6 +849,51 @@ paths:
           schema:
             type: string
       summary: 理论详情
+    put:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: 理论标题
+        in: formData
+        name: Title
+        type: string
+      - description: 理论内容
+        in: formData
+        name: Content
+        type: string
+      - description: 1正常显示,0不显示
+        in: formData
+        name: Status
+        type: integer
+      - description: 封面图片url
+        in: formData
+        name: ListImgUrl
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"code":200,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+        "400":
+          description: '{"code":400,"data":null,"msg":"请求参数错误"}'
+          schema:
+            type: string
+        "404":
+          description: '{"code":404,"data":null,"msg":"没有这个资源"}'
+          schema:
+            type: string
+        "500":
+          description: '{"code":500,"data":null,"msg":"添加文章失败"}'
+          schema:
+            type: string
+      summary: 修改理论分享
   /login:
     get:
       parameters:
