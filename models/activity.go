@@ -3,6 +3,7 @@ package models
 import (
 	"danjian/consts"
 	orm "danjian/database"
+	"strconv"
 )
 
 type Activity struct {
@@ -42,6 +43,55 @@ func (activity *Activity) First(id int) (activities []Activity, err error) {
 		model = model.Where("id = ?", id)
 	}
 	if err = model.First(&activities).Error; err != nil {
+		return
+	}
+	return
+}
+
+//修改
+func (activity *Activity) Update(id string, theme string, activityTime string, address string, content string, totol string, status string, listImgUrl string) (activities []Activity, err error) {
+	IdNumber, _ := strconv.Atoi(id)
+	totolNumber, _ := strconv.Atoi(totol)
+	activityTimeNumber, _ := strconv.Atoi(activityTime)
+	statusNumber, _ := strconv.Atoi(status)
+	model := orm.Eloquent
+	if err = model.First(&activity, IdNumber).Error; err != nil {
+		return
+	}
+	if theme != "" {
+		activity.Theme = theme
+	}
+	if activityTime != "" {
+		activity.Time = activityTimeNumber
+	}
+	if address != "" {
+		activity.Address = address
+	}
+	if content != "" {
+		activity.Content = content
+	}
+	if totol != "" {
+		activity.Totol = totolNumber
+	}
+	if status != "" {
+		activity.Status = statusNumber
+	}
+	if listImgUrl != "" {
+		activity.ListImgUrl = listImgUrl
+	}
+	if err = model.Save(&activity).Error; err != nil {
+		return
+	}
+	return
+}
+
+//删除
+func (activity *Activity) Delete(id int) (activities []Activity, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = model.Delete(&activities).Error; err != nil {
 		return
 	}
 	return

@@ -133,6 +133,115 @@
                         }
                     }
                 }
+            },
+            "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改活动",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动主题",
+                        "name": "Theme",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "活动时间",
+                        "name": "Time",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动地址",
+                        "name": "Address",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动内容",
+                        "name": "Content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "活动人数",
+                        "name": "Totol",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1正常显示,0不显示",
+                        "name": "Status",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "{\"code\":404,\"data\":null,\"msg\":\"没有这个资源\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除活动",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "/api/v1/applies": {
@@ -234,6 +343,76 @@
                 "responses": {
                     "200": {
                         "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "添加封面图片",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "图片url",
+                        "name": "ImgUrl",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1：党建工作室 2：活动报名 3：理论分享 4：主题党日 5：党建动态",
+                        "name": "Type",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{\"code\":201,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/banners/{id}": {
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除封面",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -381,6 +560,115 @@
                         }
                     }
                 }
+            },
+            "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改主题党日动态",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "地点",
+                        "name": "Address",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动内容",
+                        "name": "Content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "活动名称",
+                        "name": "Name",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "参加对象",
+                        "name": "Joined",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "记录人",
+                        "name": "Record",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "时间",
+                        "name": "Time",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":201,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "{\"code\":404,\"data\":null,\"msg\":\"没有这个资源\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除主题党日动态",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "/api/v1/dynamics": {
@@ -484,6 +772,91 @@
                 "responses": {
                     "200": {
                         "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改党建动态",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "党建动态标题",
+                        "name": "Title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "党建动态内容",
+                        "name": "Content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "{\"code\":404,\"data\":null,\"msg\":\"没有这个资源\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除党建动态",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -683,6 +1056,103 @@
                         }
                     }
                 }
+            },
+            "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改风采",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "类型1团队风采,2活动风采",
+                        "name": "Type",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "风采标题",
+                        "name": "Title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "风采内容",
+                        "name": "Content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1正常显示,0不显示",
+                        "name": "Status",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "{\"code\":404,\"data\":null,\"msg\":\"没有这个资源\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除风采",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
         },
         "/api/v1/theoies": {
@@ -787,6 +1257,97 @@
                 "responses": {
                     "200": {
                         "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "修改理论分享",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "理论标题",
+                        "name": "Title",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "理论内容",
+                        "name": "Content",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "1正常显示,0不显示",
+                        "name": "Status",
+                        "in": "formData"
+                    },
+                    {
+                        "type": "string",
+                        "description": "封面图片url",
+                        "name": "ListImgUrl",
+                        "in": "formData"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "{\"code\":400,\"data\":null,\"msg\":\"请求参数错误\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "{\"code\":404,\"data\":null,\"msg\":\"没有这个资源\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"code\":500,\"data\":null,\"msg\":\"添加文章失败\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "删除风采",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "{\"code\":204,\"data\":{},\"msg\":\"ok\"}",
                         "schema": {
                             "type": "string"
                         }

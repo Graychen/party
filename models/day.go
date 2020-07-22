@@ -57,3 +57,58 @@ func (day *Day) First(id int) (days []Day, err error) {
 	}
 	return
 }
+
+//修改
+func (day *Day) Update(id string, dayTime string, joined string, record string, address string, content string, name string, status string, nowString string, listImgUrl string) (days []Day, err error) {
+	IdNumber, _ := strconv.Atoi(id)
+	dayTimeNumber, _ := strconv.Atoi(dayTime)
+	statusNumber, _ := strconv.Atoi(status)
+	nowNumber, _ := strconv.Atoi(nowString)
+	model := orm.Eloquent
+	if err = model.First(&day, IdNumber).Error; err != nil {
+		return
+	}
+	if dayTime != "" {
+		day.Time = dayTimeNumber
+	}
+	if joined != "" {
+		day.Joined = joined
+	}
+	if record != "" {
+		day.Record = record
+	}
+	if nowString != "" {
+		day.Time = nowNumber
+	}
+	if content != "" {
+		day.Content = content
+	}
+	if address != "" {
+		day.Address = address
+	}
+	if name != "" {
+		day.Name = name
+	}
+	if status != "" {
+		day.Status = statusNumber
+	}
+	if listImgUrl != "" {
+		day.ListImgUrl = listImgUrl
+	}
+	if err = model.Save(&day).Error; err != nil {
+		return
+	}
+	return
+}
+
+//删除
+func (day *Day) Delete(id int) (days []Day, err error) {
+	model := orm.Eloquent
+	if id != 0 {
+		model = model.Where("id = ?", id)
+	}
+	if err = model.Delete(&days).Error; err != nil {
+		return
+	}
+	return
+}
