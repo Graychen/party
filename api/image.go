@@ -35,7 +35,7 @@ func CreateImages(c *gin.Context) {
 		return
 	}
 	filepath := "uploads/" + file.Filename
-	appG.Response(http.StatusCreated, consts.SUCCESS, filepath)
+	appG.Response(http.StatusOK, consts.SUCCESS, filepath)
 }
 
 /*
