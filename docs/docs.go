@@ -1355,7 +1355,7 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "summary": "删除风采",
+                "summary": "删除理论分享",
                 "parameters": [
                     {
                         "type": "integer",

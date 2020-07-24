@@ -144,7 +144,7 @@ func UpdateTheoy(c *gin.Context) {
 	appG.Response(http.StatusOK, consts.SUCCESS, result)
 }
 
-// @Summary 删除风采
+// @Summary 删除理论分享
 // @Produce json
 // @Param id path int true "Id"
 // @Success 204 {string} json "{"code":204,"data":{},"msg":"ok"}"

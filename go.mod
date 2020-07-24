@@ -42,6 +42,7 @@ require (
 	github.com/swaggo/gin-swagger v1.2.0
 	github.com/swaggo/swag v1.6.7
 	github.com/urfave/cli/v2 v2.2.0 // indirect
+	github.com/widuu/gojson v0.0.0-20170212122013-7da9d2cd949b
 	github.com/yuin/goldmark v1.1.33 // indirect
 	go.opencensus.io v0.22.4 // indirect
 	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899 // indirect

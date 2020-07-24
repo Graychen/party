@@ -2,6 +2,7 @@ package api
 
 import (
 	"danjian/consts"
+	model "danjian/models"
 	"danjian/service/authentication"
 	"danjian/util"
 	"net/http"
@@ -54,4 +55,25 @@ func Login(c *gin.Context) {
 	appG.Response(http.StatusOK, consts.SUCCESS, map[string]string{
 		"token": token,
 	})
+}
+
+// @Summary 获取accessToken
+// @Produce json
+// @Success 200 {string} json "{"code":200,"data":{},"msg":"ok"}"
+// @Router /userId [get]
+func UserInfo(c *gin.Context) {
+	var user model.Users
+	appG := util.Gin{C: c}
+	token, err := user.GetToken()
+	if err != nil {
+		appG.Response(http.StatusOK, consts.ERROR_AUTH_TOKEN, nil)
+		return
+	}
+	code := c.Query("code")
+	userInfo, err := user.GetUserId(token, code)
+	if err != nil {
+		appG.Response(http.StatusOK, consts.ERROR_AUTH_TOKEN, nil)
+		return
+	}
+	appG.Response(http.StatusOK, consts.SUCCESS, string(userInfo))
 }
