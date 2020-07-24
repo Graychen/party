@@ -168,7 +168,6 @@ func DeleteActivity(c *gin.Context) {
 	appG := util.Gin{C: c}
 	id := c.Param("id")
 	IdNumber, _ := strconv.Atoi(id)
-
 	/*
 		isExist, err := activity.isExist(IdNumber)
 		if err != nil {

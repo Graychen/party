@@ -833,7 +833,7 @@ paths:
           description: '{"code":204,"data":{},"msg":"ok"}'
           schema:
             type: string
-      summary: 删除风采
+      summary: 删除理论分享
     get:
       parameters:
       - description: Id

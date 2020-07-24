@@ -16,6 +16,8 @@ func InitRouter() *gin.Engine {
 	router := gin.New()
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.GET("/login", api.Login)
+	router.GET("/userId", api.UserInfo)
+	//router.GET("/token", api.Token)
 	router.StaticFS("/uploads", http.Dir("uploads"))
 	router.StaticFS("/logs", http.Dir("logs"))
 	apiVersionOne := router.Group("/api/v1/")
